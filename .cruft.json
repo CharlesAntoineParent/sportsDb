@@ -1,0 +1,31 @@
+{
+  "template": "https://github.com/radix-ai/poetry-cookiecutter",
+  "commit": "5636490e5fd6a52fd1a7f5a782d4f16c60217c48",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "package_name": "sportsDb",
+      "package_description": "A Python package that ...",
+      "package_url": "https://github.com/CharlesAntoineParent/sportsDb",
+      "author_name": "Charles-Antoine Parent",
+      "author_email": "charles-antoine.parent@outlook.com",
+      "python_version": "3.8",
+      "development_environment": "strict",
+      "with_conventional_commits": "1",
+      "with_fastapi_api": "0",
+      "with_jupyter_lab": "0",
+      "with_pydantic_typing": "1",
+      "with_sentry_logging": "0",
+      "with_streamlit_app": "0",
+      "with_typer_cli": "1",
+      "continuous_integration": "GitHub",
+      "docstring_style": "Google",
+      "private_package_repository_name": "",
+      "private_package_repository_url": "",
+      "__package_name_kebab_case": "sportsdb",
+      "__package_name_snake_case": "sportsdb",
+      "_template": "https://github.com/radix-ai/poetry-cookiecutter"
+    }
+  },
+  "directory": null
+}
