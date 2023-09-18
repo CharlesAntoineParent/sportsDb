@@ -35,12 +35,12 @@ ENV PATH /opt/sportsdb-env/bin:$PATH
 ENV VIRTUAL_ENV /opt/sportsdb-env
 
 # Set the working directory.
-WORKDIR /workspaces/sportsdb/
+WORKDIR /home/user/workspaces/sportsdb/
 
 # Install the run time Python dependencies in the virtual environment.
-COPY --chown=user:user poetry.lock* pyproject.toml /workspaces/sportsdb/
+COPY --chown=user:user poetry.lock* pyproject.toml /home/user/workspaces/sportsdb/
 RUN mkdir -p /home/user/.cache/pypoetry/ && mkdir -p /home/user/.config/pypoetry/ && \
-    mkdir -p src/sportsdb/ && touch src/sportsdb/__init__.py && touch README.md
+    mkdir -p /home/user/workspaces/sportsdb/src/sportsdb/ && touch /home/user/workspaces/sportsdb/src/sportsdb/__init__.py && touch README.md
 RUN --mount=type=cache,uid=$UID,gid=$GID,target=/home/user/.cache/pypoetry/ \
     poetry install --only main --no-interaction
 
@@ -81,7 +81,7 @@ RUN --mount=type=cache,uid=$UID,gid=$GID,target=/home/user/.cache/pypoetry/ \
     poetry install --no-interaction
 
 # Persist output generated during docker build so that we can restore it in the dev container.
-COPY --chown=user:user .pre-commit-config.yaml /workspaces/sportsdb/
+COPY --chown=user:user .pre-commit-config.yaml /home/user/workspaces/sportsdb/
 RUN mkdir -p /opt/build/poetry/ && cp poetry.lock /opt/build/poetry/ && \
     git init && pre-commit install --install-hooks && \
     mkdir -p /opt/build/git/ && cp .git/hooks/commit-msg .git/hooks/pre-commit /opt/build/git/

@@ -13,7 +13,7 @@ services:
     environment:
       - POETRY_PYPI_TOKEN_PYPI
     volumes:
-      - ..:/workspaces
+      - ..:/home/user/workspaces
       - command-history-volume:/home/user/.history/
 
   dev:
@@ -25,7 +25,7 @@ services:
       [
         "sh",
         "-c",
-        "sudo chown user $$SSH_AUTH_SOCK && cp --update /opt/build/poetry/poetry.lock /workspaces/sportsdb/ && mkdir -p /workspaces/sportsdb/.git/hooks/ && cp --update /opt/build/git/* /workspaces/sportsdb/.git/hooks/ && zsh"
+        "sudo chown -R user:user /home/user/workspaces && sudo chown user $$SSH_AUTH_SOCK && cp --update /opt/build/poetry/poetry.lock /home/user/workspaces/sportsdb/ && mkdir -p /home/user/workspaces/sportsdb/.git/hooks/ && cp --update /opt/build/git/* /home/user/workspaces/sportsdb/.git/hooks/ && zsh"
       ]
     environment:
       - POETRY_PYPI_TOKEN_PYPI

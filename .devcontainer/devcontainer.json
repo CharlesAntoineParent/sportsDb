@@ -2,15 +2,19 @@
     "name": "sportsdb",
     "dockerComposeFile": "../docker-compose.yml",
     "service": "devcontainer",
-    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}/",
+    "workspaceFolder": "/home/user/workspaces/${localWorkspaceFolderBasename}/",
     "remoteUser": "user",
     "overrideCommand": true,
-    "postStartCommand": "cp --update /opt/build/poetry/poetry.lock /workspaces/${localWorkspaceFolderBasename}/ && mkdir -p /workspaces/${localWorkspaceFolderBasename}/.git/hooks/ && cp --update /opt/build/git/* /workspaces/${localWorkspaceFolderBasename}/.git/hooks/",
+    "postStartCommand": "sudo chown -R user:user /home/user/workspaces && cp --update /opt/build/poetry/poetry.lock /home/user/workspaces/${localWorkspaceFolderBasename}/ && mkdir -p /home/user/workspaces/${localWorkspaceFolderBasename}/.git/hooks/ && cp --update /opt/build/git/* /home/user/workspaces/${localWorkspaceFolderBasename}/.git/hooks/",
     "customizations": {
         "vscode": {
             "extensions": [
-                "charliermarsh.ruff",
                 "ms-python.python",
+                "charliermarsh.ruff",
+                "github.copilot",
+                "github.copilot-chat",
+                "lextudio.restructuredtext",
+                "njpwerner.autodocstring",
                 "ryanluker.vscode-coverage-gutters",
                 "tamasfe.even-better-toml",
                 "visualstudioexptteam.vscodeintellicode"
